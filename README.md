@@ -12,7 +12,7 @@ automates the process of downloading GSE files from public repository GEO
 chmod +x downloadFiles Tools/downloadGseFiles.sh
 ```
 
-4. move `Tools` and `downloadFiles` to <working directory>
+4. move `Tools` and `downloadFiles` to working directory
 
 ## Usage
 
