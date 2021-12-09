@@ -1,0 +1,6 @@
+#!/bin/bash
+touch out.txt in.txt
+echo "collecting links..."
+python3 Tools/web_scraper.py in.txt out.txt
+echo "downloading files..."
+./Tools/downloadGseFiles.sh
