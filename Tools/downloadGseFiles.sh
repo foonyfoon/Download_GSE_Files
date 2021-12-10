@@ -4,8 +4,7 @@ readonly root_dir=$(pwd)
 current_dir=$root_dir
 
 regex_url='^(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]\.[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]$'
-#dir name must be in the format of "xx..x_GSEnn..n" (no whitespace characters
-#allowed, GSE id must be placed at the end of string)
+#dir name must be in the format of "xx..x_GSEnn..n" (no whitespace characters allowed, GSE id must be placed at the end of string)
 regex_id='GSE[0-9]+$'
 
 while read -r line
@@ -13,7 +12,6 @@ do
 #if line is in the pattern of an url
   if [[ $line =~ $regex_url ]]
   then 
-    echo "$line will be downloaded to dir $(pwd)"
     axel -a -n 40 $line
   
   fi
@@ -23,7 +21,6 @@ do
   then 
     if [[ $(pwd) != $root_dir ]]
     then
-      echo "leaving $(pwd) to $root_dir"
       cd $root_dir
     fi
 
@@ -47,10 +44,8 @@ do
     fi
 
     cd $_dir
-    echo "at "$(pwd)
   fi
 
 done < out.txt
 
-echo "leaving $(pwd) to $root_dir"
 cd $root_dir
